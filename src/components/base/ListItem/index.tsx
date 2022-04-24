@@ -17,7 +17,7 @@ export default function ListItem({ item, index }: Props) {
   const dispatch = useAppDispatch();
   const { actions } = useFileSliceSlice();
   return (
-    <article className="my-1 flex w-full items-center justify-around space-x-6 bg-white p-3 font-sans shadow-lg">
+    <article className="my-1 flex w-full items-center justify-around space-x-6 bg-white p-3 font-sans shadow-md">
       <ImagePreview image={item.compressedImage}>
         <img
           src={
@@ -26,12 +26,12 @@ export default function ListItem({ item, index }: Props) {
           }
           alt=""
           width="60"
-          height="88"
-          className="flex-none rounded-md bg-slate-100"
+          height="60"
+          className="h-12 w-12 flex-none rounded-full bg-slate-100"
         />
       </ImagePreview>
       <div className="relative flex w-full min-w-0 flex-wrap items-center justify-around">
-        <h2 className="overflow-auto truncate pr-20 font-semibold text-slate-900">
+        <h2 className="hidden overflow-auto truncate pr-20 font-semibold text-slate-900 md:inline-block ">
           {item.imageName.length > 15
             ? item.imageName.substring(0, 16)
             : item.imageName}
@@ -41,7 +41,7 @@ export default function ListItem({ item, index }: Props) {
             <dt className="sr-only">Orifinal size</dt>
             <dd> {Math.round(item.originalSize)} kb</dd>
           </div>
-          <BeakerIcon className="text-lg text-yellow-500 " />
+          <BeakerIcon width={20} className="text-lg text-yellow-500 " />
           <div className="ml-2">
             <dt className="sr-only">Compressed</dt>
             <dd>{Math.round(item.compressedSize)} kb</dd>
@@ -73,7 +73,7 @@ export default function ListItem({ item, index }: Props) {
               100
           )}
           strokeWidth={7}
-          width={50}
+          width={45}
         />
         <div className="flex items-center justify-center  space-x-1 divide-x-2 ">
           <a

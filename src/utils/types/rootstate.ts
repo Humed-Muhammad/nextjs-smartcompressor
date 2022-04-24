@@ -1,4 +1,4 @@
-import { configureAppStore } from 'store/configureStore';
+import { configureAppStore } from '@/store/configureStore';
 
 const store = configureAppStore();
 export type RootState = ReturnType<typeof store.getState>;

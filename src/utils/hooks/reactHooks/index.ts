@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { getLocalStorage } from 'utils/helpers';
+import { useEffect, useState } from 'react';
+
+import { getLocalStorage } from '@/utils/helpers';
 
 export const useAuth = () => {
   const token = getLocalStorage('token');

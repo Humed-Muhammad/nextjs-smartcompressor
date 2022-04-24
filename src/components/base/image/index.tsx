@@ -3,15 +3,16 @@ interface Props {
   width?: string | number;
   height?: string | number;
   className?: string;
+  alt?: string;
 }
 
-export const Image = ({ src, width, height, className }: Props) => {
+export const Image = ({ src, width, height, className, alt }: Props) => {
   return (
     <img
       width={width}
       height={height}
       src={src}
-      alt="file"
+      alt={alt}
       className={`${className} object-cover`}
     />
   );
