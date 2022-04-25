@@ -1,5 +1,11 @@
 export const endpoint = 'http://localhost:5050/graphql' || '';
 
+export const routes = {
+  home: '/',
+  about: '/about',
+  compressed: '/compressed',
+};
+
 export const countryPhoneCode = [
   {
     value: '+93',

@@ -1,89 +1,31 @@
+import { Button } from 'antd';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import logo from '@/public/logo.png';
+import { routes } from '@/utils/constants/constants';
 
-interface Props {
-  name?: string;
-  image?: string;
-}
-export function Navigationbar({ name, image }: Props) {
+export function Navigationbar() {
   return (
     <nav className="rounded border-gray-200 bg-white px-2 py-2.5 dark:bg-gray-800 sm:px-4">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
-        <a href="https://flowbite.com" className="flex items-center">
-          <Image
-            width={35}
-            height={35}
-            src={logo}
-            className="mr-3 h-6 sm:h-9"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Image Compressor
-          </span>
-        </a>
-        <div className="flex items-center md:order-2">
-          <button
-            className="mr-3 flex rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 md:mr-0"
-            id="user-menu-button"
-            aria-expanded="false"
-            type="button"
-            data-dropdown-toggle="dropdown"
-          >
-            <span className="sr-only">Open user menu</span>
-            <img
-              className="h-8 w-8 rounded-full"
-              src={image}
-              alt="user photo"
+        <Link passHref href={routes.home}>
+          <div className="flex cursor-pointer items-center ">
+            <Image
+              width={35}
+              height={35}
+              src={logo}
+              className="mr-3 h-6 sm:h-9"
+              alt="Flowbite Logo"
             />
-          </button>
-          {/* <div
-            className="z-50 my-4 hidden list-none divide-y divide-gray-100 rounded bg-white text-base shadow dark:divide-gray-600 dark:bg-gray-700"
-            id="dropdown"
-          >
-            <div className="py-3 px-4">
-              <span className="block text-sm text-gray-900 dark:text-white">
-                Bonnie Green
-              </span>
-              <span className="block truncate text-sm font-medium text-gray-500 dark:text-gray-400">
-                name@flowbite.com
-              </span>
-            </div>
-            <ul className="py-1" aria-labelledby="dropdown">
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Dashboard
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Settings
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Earnings
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Sign out
-                </a>
-              </li>
-            </ul>
-          </div> */}
+            <h1 className="ml-2 self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+              Image Compressor
+            </h1>
+          </div>
+        </Link>
+        <div className="flex items-center md:order-2">
+          <Button type="dashed">Save locally</Button>
+
           <button
             data-collapse-toggle="mobile-menu-2"
             type="button"
@@ -123,46 +65,24 @@ export function Navigationbar({ name, image }: Props) {
           id="mobile-menu-2"
         >
           <ul className="mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
-            <li>
-              <a
-                href="#"
-                className="block rounded bg-blue-700 py-2 pr-4 pl-3 text-white dark:text-white md:bg-transparent md:p-0 md:text-blue-700"
-                aria-current="page"
-              >
-                Home
-              </a>
+            <li
+              className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
+              aria-current="page"
+            >
+              <Link href={routes.home}>Home</Link>
             </li>
-            <li>
-              <a
-                href="#"
-                className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
-              >
-                About
-              </a>
+
+            <li
+              className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
+              aria-current="page"
+            >
+              <Link href={routes.about}>about</Link>
             </li>
-            <li>
-              <a
-                href="#"
-                className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
-              >
-                Compressed
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
-              >
-                Login
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
-              >
-                Signup
-              </a>
+            <li
+              className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
+              aria-current="page"
+            >
+              <Link href={routes.compressed}>Compressed</Link>
             </li>
           </ul>
         </div>

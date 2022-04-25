@@ -1,6 +1,5 @@
 /* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable tailwindcss/no-custom-classname */
-import { DocumentAddIcon } from '@heroicons/react/outline';
 import { Upload, UploadProps } from 'antd';
 
 interface Props {
@@ -24,9 +23,9 @@ const FileDropzone = ({ props }: Props) => {
         className="bg-white px-5"
         height={200}
       >
-        <p className="ant-upload-drag-icon flex items-center justify-center">
+        {/* <p className="ant-upload-drag-icon flex items-center justify-center">
           <DocumentAddIcon className="text-inherit" width="35px" />
-        </p>
+        </p> */}
         <p className="ant-upload-text font-sans text-sm sm:text-base md:text-lg">
           Click or drag file to this area to compress
         </p>

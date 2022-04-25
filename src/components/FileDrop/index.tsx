@@ -30,7 +30,7 @@ export const FileDrop = () => {
           const res = await handleImageCompression(file);
           result.push(res);
         }
-        message.success(`${name} Image compressed successfully.`);
+
         dispatch(actions.getImages(result));
       } else {
         message.warning(`No image to compress please upload and try again!`);
@@ -47,6 +47,7 @@ export const FileDrop = () => {
           handleCompresssion(fileListData).then(() => {
             setFileListData([]);
             setStartCompression(false);
+            message.success(`Images compressed successfully.`);
           }),
         10
       );

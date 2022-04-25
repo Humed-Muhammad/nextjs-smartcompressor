@@ -1,5 +1,6 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
+import { showNotification } from '@mantine/notifications';
 import { BlobReader, Data64URIWriter, ZipWriter } from '@zip.js/zip.js';
 
 import { CompressedResultTypes } from '../types';
@@ -8,7 +9,15 @@ export const zipper = async (files: CompressedResultTypes[]) => {
   const zipWriter = new ZipWriter(new Data64URIWriter('application/zip'));
 
   for (const file of files) {
-    await zipWriter.add(file.imageName, new BlobReader(file.compressedImage));
+    try {
+      await zipWriter.add(file.imageName, new BlobReader(file.compressedImage));
+    } catch ({ message }) {
+      showNotification({
+        title: 'Error',
+        message: `${file.imageName} ${message} please remove it from compressed list!`,
+        color: 'red',
+      });
+    }
   }
 
   const dataURI = await zipWriter.close();
