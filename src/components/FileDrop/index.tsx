@@ -1,4 +1,5 @@
-import { message, Spin, UploadProps } from 'antd';
+import { AdjustmentsIcon } from '@heroicons/react/outline';
+import { message, Popover, Slider, Spin, UploadProps } from 'antd';
 import { UploadFile } from 'antd/lib/upload/interface';
 import { useEffect, useState } from 'react';
 
@@ -7,6 +8,7 @@ import { handleImageCompression } from '@/utils/functions/compressor';
 import { useAppDispatch, useAppSelector } from '@/utils/hooks/reduxHooks';
 import { CompressedResultTypes } from '@/utils/types';
 
+import { Container } from '../base';
 import { CompressedList } from '../CompressedListView';
 import { useFileSliceSlice } from './slice';
 import { selectCompressedImages } from './slice/selectors';
@@ -14,8 +16,9 @@ import { selectCompressedImages } from './slice/selectors';
 export const FileDrop = () => {
   const [fileListData, setFileListData] = useState<Array<UploadFile>>([]);
   const [startCompression, setStartCompression] = useState<boolean>(false);
+  const [compressionRate, setCompressionRate] = useState<number>(70);
   const dispatch = useAppDispatch();
-  const compressedImages = useAppSelector(selectCompressedImages);
+  const compressedImages = useAppSelector(selectCompressedImages as any);
   const showLoading = useAppSelector((state) => state?.fileSlice.showProgress);
   const { actions } = useFileSliceSlice();
 
@@ -27,7 +30,7 @@ export const FileDrop = () => {
         // eslint-disable-next-line no-restricted-syntax
         for (const file of files) {
           // eslint-disable-next-line no-await-in-loop
-          const res = await handleImageCompression(file);
+          const res = await handleImageCompression(file, compressionRate);
           result.push(res);
         }
 
@@ -66,10 +69,36 @@ export const FileDrop = () => {
     fileList: fileListData,
   };
   return (
-    <div className="flex w-full flex-col items-center justify-start overflow-auto  ">
+    <div className="flex w-full flex-col items-center justify-start bg-slate-100 ">
+      <Container className="mt-5">
+        <Popover
+          content={
+            <div className="w-96">
+              <h2 className="font-semibold text-indigo-500 ">
+                Adjust compression rate
+              </h2>
+              <h4 className="font-normal text-gray-400">Best is 65 - 100</h4>
+              <Slider
+                onAfterChange={(value) => {
+                  setCompressionRate(value);
+                }}
+                defaultValue={70}
+              />
+            </div>
+          }
+          trigger="click"
+        >
+          <AdjustmentsIcon
+            className="w-8 cursor-pointer text-indigo-400"
+            // width={35}
+          />
+        </Popover>
+      </Container>
       <FileDropzone props={props} />
-      <div className="mt-2 flex  w-full flex-wrap items-center justify-center  overflow-auto">
-        <CompressedList item={compressedImages} />
+      <div className="my-4 flex  h-auto w-full flex-wrap items-center justify-center bg-slate-100">
+        <CompressedList
+          item={compressedImages as CompressedResultTypes[] | undefined}
+        />
         {showLoading && (
           <div className="mt-5 flex w-full items-center justify-center">
             <Spin />

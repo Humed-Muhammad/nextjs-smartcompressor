@@ -8,7 +8,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang={AppConfig.locale}>
-        <Head />
+        <Head>
+          <meta property="og:type" content="online-tool" />
+        </Head>
         <body>
           <Main />
           <NextScript />

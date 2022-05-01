@@ -23,7 +23,7 @@ const slice = createSlice({
   reducers: {
     getImages(
       state,
-      action: PayloadAction<Array<CompressedResultTypes | undefined>>
+      _action: PayloadAction<Array<CompressedResultTypes | undefined>>
     ) {
       state.isUploading = true;
     },

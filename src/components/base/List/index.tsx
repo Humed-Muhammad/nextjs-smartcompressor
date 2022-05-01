@@ -3,6 +3,6 @@ interface Props {
 }
 export const List = ({ children }: Props) => {
   return (
-    <ul className="divide-y divide-slate-100 w-full xl:w-2/3 ">{children}</ul>
+    <ul className="w-full divide-y divide-slate-100 xl:w-2/3 ">{children}</ul>
   );
 };

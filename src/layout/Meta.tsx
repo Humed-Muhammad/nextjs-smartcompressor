@@ -1,17 +1,15 @@
 import { ReactElement } from 'react';
 
 import { Navigationbar } from '@/components/navbar/navbar';
-import { useAuth } from '@/utils/hooks/reactHooks';
 
 interface Props {
   children: ReactElement<any>;
 }
 export const Layout = ({ children }: Props) => {
-  const auth = useAuth();
   return (
-    <>
+    <div className=" flex h-screen w-full flex-col items-stretch  justify-around  bg-slate-100">
       <Navigationbar />
       {children}
-    </>
+    </div>
   );
 };

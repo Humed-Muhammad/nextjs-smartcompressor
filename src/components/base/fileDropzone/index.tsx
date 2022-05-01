@@ -15,7 +15,7 @@ const FileDropzone = ({ props }: Props) => {
       <Dragger
         showUploadList={false}
         listType="picture"
-        customRequest={({ file, onSuccess }) => {
+        customRequest={({ onSuccess }) => {
           setTimeout(() => {
             onSuccess?.('ok');
           }, 0.1);

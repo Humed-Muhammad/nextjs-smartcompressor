@@ -7,7 +7,6 @@ import { List, ListItem } from '@/components/base';
 import { zipper } from '@/utils/functions/zipper';
 import { CompressedResultTypes } from '@/utils/types';
 
-import { Container } from '../base/container';
 import { useFileSliceSlice } from '../FileDrop/slice';
 
 interface Props {
@@ -35,12 +34,12 @@ export const CompressedList = ({ item }: Props) => {
   return (
     <List>
       {item && item?.length >= 2 && (
-        <Container className="my-2 items-center justify-end">
-          <h4 className=" cursor-pointer border-b-2 text-blue-500 hover:border-b-2 hover:border-b-blue-400">
+        <div className="my-2 flex items-center justify-end">
+          <h2 className=" cursor-pointer border-b-2 text-blue-500 hover:border-b-2 hover:border-b-blue-400">
             <a href={allImages} download>
               Download all
             </a>
-          </h4>
+          </h2>
           <Popconfirm
             title="Are you sure to delete all images?"
             onConfirm={() => dispatch(actions.deleteAllImages())}
@@ -51,14 +50,14 @@ export const CompressedList = ({ item }: Props) => {
             }}
             placement="topRight"
           >
-            <h4 className=" ml-5 cursor-pointer border-b-2 text-red-500 hover:border-b-2 hover:border-b-orange-400">
+            <h2 className=" ml-5 cursor-pointer border-b-2 text-red-500 hover:border-b-2 hover:border-b-orange-400">
               Delete all
-            </h4>
+            </h2>
           </Popconfirm>
-        </Container>
+        </div>
       )}
-      {item?.map((item, index) => (
-        <ListItem index={index} key={uuid()} item={item} />
+      {item?.map((images, index) => (
+        <ListItem index={index} key={uuid()} item={images} />
       ))}
     </List>
   );

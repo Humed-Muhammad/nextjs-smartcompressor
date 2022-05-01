@@ -2,7 +2,7 @@ import { Button } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import logo from '@/public/logo.png';
+import logo from '@/public/favicon.ico';
 import { routes } from '@/utils/constants/constants';
 
 export function Navigationbar() {
@@ -11,14 +11,8 @@ export function Navigationbar() {
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link passHref href={routes.home}>
           <div className="flex cursor-pointer items-center ">
-            <Image
-              width={35}
-              height={35}
-              src={logo}
-              className="mr-3 h-6 sm:h-9"
-              alt="Flowbite Logo"
-            />
-            <h1 className="ml-2 self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            <Image width={35} height={35} src={logo} alt="Flowbite Logo" />
+            <h1 className="ml-2 self-center whitespace-nowrap text-base font-normal dark:text-white md:text-xl md:font-semibold ">
               Image Compressor
             </h1>
           </div>

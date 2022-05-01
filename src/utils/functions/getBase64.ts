@@ -10,7 +10,7 @@ export const getBase64 = (file: File) => {
 };
 
 export const convertToBlob = async (file: File) => {
-  return getBase64(file).then(data => {
+  return getBase64(file).then((data) => {
     return data;
   });
 };

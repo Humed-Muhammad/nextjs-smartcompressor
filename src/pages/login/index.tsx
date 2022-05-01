@@ -24,8 +24,6 @@ import React from 'react';
 
 import { Container } from '@/components/base';
 
-interface Props {}
-
 export function LoginForm() {
   const form = useForm({
     initialValues: {
@@ -40,7 +38,7 @@ export function LoginForm() {
   });
   return (
     <Container className="flex-col">
-      <form onSubmit={form.onSubmit((values) => console.log(values))}>
+      <form onSubmit={form.onSubmit((values) => values)}>
         <Title
           align="center"
           sx={(theme) => ({
@@ -95,7 +93,7 @@ export function LoginForm() {
 }
 
 // eslint-disable-next-line unused-imports/no-unused-vars
-const Login = (props: Props) => {
+const Login = () => {
   return (
     <Container className="h-screen w-full bg-gray-200 p-2 md:p-5 lg:p-10 ">
       <Container className="hidden h-full w-1/3 flex-col bg-white shadow lg:flex">

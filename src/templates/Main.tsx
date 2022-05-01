@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 import Link from 'next/link';
 import { ReactNode } from 'react';
 
@@ -39,7 +40,7 @@ const Main = (props: IMainProps) => (
             <li className="mr-6">
               <a
                 className="border-none text-gray-700 hover:text-gray-900"
-                href="https://github.com/ixartz/Next-js-Boilerplate"
+                href="https://github.com/ixartz/image-compressor"
               >
                 GitHub
               </a>

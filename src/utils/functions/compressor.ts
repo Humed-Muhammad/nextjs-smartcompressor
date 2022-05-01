@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import { message } from 'antd';
 import { UploadFile } from 'antd/lib/upload/interface';
 import imageCompression from 'browser-image-compression';
@@ -20,14 +21,15 @@ interface Options {
   /** @default 1.0 */
   initialQuality?: number;
 }
-export async function handleImageCompression({
-  originFileObj,
-}: UploadFile<File>) {
+export async function handleImageCompression(
+  { originFileObj }: UploadFile<File>,
+  compressionRate?: number
+) {
   const options: Options = {
     maxSizeMB: 5,
     maxWidthOrHeight: 1920,
     useWebWorker: true,
-    initialQuality: 0.7,
+    initialQuality: Number(compressionRate) / 100,
   };
   try {
     // @ts-ignore

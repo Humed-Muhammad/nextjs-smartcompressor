@@ -1,4 +1,4 @@
-import { Popover, Image } from 'antd';
+import { Image, Popover } from 'antd';
 
 interface Props {
   image: Blob;
@@ -12,6 +12,7 @@ export const ImagePreview = ({ image, children }: Props) => {
         preview={false}
         className="w-72"
         src={image && window.URL.createObjectURL(image)}
+        alt="Compressed image"
       />
     </div>
   );
