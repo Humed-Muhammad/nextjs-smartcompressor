@@ -7,7 +7,7 @@ interface Props {
   danger?: boolean;
   children?: any;
   className?: string;
-  variant: 'default' | 'primary' | 'ghost' | 'dashed' | 'link' | 'text';
+  variant?: 'default' | 'primary' | 'ghost' | 'dashed' | 'link' | 'text';
 }
 
 const CustomButton = ({

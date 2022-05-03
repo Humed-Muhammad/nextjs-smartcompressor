@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
-    "@apollo/client": "^3.5.10",
     "@heroicons/react": "^1.0.6",
     "@mantine/core": "^4.1.5",
     "@mantine/form": "^4.1.5",
@@ -27,7 +26,6 @@
     "@zip.js/zip.js": "^2.4.10",
     "antd": "^4.19.5",
     "browser-image-compression": "^2.0.0",
-    "graphql": "^16.3.0",
     "next": "^12.1.4",
     "next-seo": "^5.4.0",
     "react": "^17.0.2",
