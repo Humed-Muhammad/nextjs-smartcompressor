@@ -2,9 +2,19 @@ import { Button } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { prisma } from '@/db';
 import logo from '@/public/favicon.ico';
+import { useAppSelector } from '@/utils/hooks/reduxHooks';
+
+import { selectCompressedImages } from '../FileDrop/slice/selectors';
 
 export function Navigationbar() {
+  const compressedImages = useAppSelector(selectCompressedImages);
+  const handleSaveCompressedImages = () => {
+    return compressedImages?.map(async (item) => {
+      await prisma.images.create(item);
+    });
+  };
   return (
     <nav className="rounded bg-white px-2 py-2.5 shadow-lg sm:px-4">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
@@ -23,7 +33,9 @@ export function Navigationbar() {
           </div>
         </Link>
         <div className="flex items-center md:order-2">
-          <Button type="dashed">Save locally</Button>
+          <Button onClick={handleSaveCompressedImages} type="dashed">
+            Save locally
+          </Button>
         </div>
 
         <p

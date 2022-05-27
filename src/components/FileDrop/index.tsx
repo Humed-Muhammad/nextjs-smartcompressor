@@ -18,7 +18,7 @@ export const FileDrop = () => {
   const [startCompression, setStartCompression] = useState<boolean>(false);
   const [compressionRate, setCompressionRate] = useState<number>(70);
   const dispatch = useAppDispatch();
-  const compressedImages = useAppSelector(selectCompressedImages as any);
+  const compressedImages = useAppSelector(selectCompressedImages);
   const showLoading = useAppSelector((state) => state?.fileSlice.showProgress);
   const { actions } = useFileSliceSlice();
 

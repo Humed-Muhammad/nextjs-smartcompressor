@@ -6,7 +6,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
 
-import { Layout } from '@/layout/Meta';
+import { Layout } from '@/layout';
 import { configureAppStore } from '@/store/configureStore';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
