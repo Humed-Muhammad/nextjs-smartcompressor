@@ -18,7 +18,7 @@ export const FileDrop = () => {
   const [startCompression, setStartCompression] = useState<boolean>(false);
   const [compressionRate, setCompressionRate] = useState<number>(70);
   const dispatch = useAppDispatch();
-  const compressedImages = useAppSelector(selectCompressedImages as any);
+  const compressedImages = useAppSelector(selectCompressedImages);
   const showLoading = useAppSelector((state) => state?.fileSlice.showProgress);
   const { actions } = useFileSliceSlice();
 
@@ -73,7 +73,7 @@ export const FileDrop = () => {
       <Container className="mt-5">
         <Popover
           content={
-            <div className="w-96">
+            <div className="w-11/12 md:w-96 ">
               <h2 className="font-semibold text-indigo-500 ">
                 Adjust compression rate
               </h2>
@@ -88,10 +88,7 @@ export const FileDrop = () => {
           }
           trigger="click"
         >
-          <AdjustmentsIcon
-            className="w-8 cursor-pointer text-indigo-400"
-            // width={35}
-          />
+          <AdjustmentsIcon className="w-8 cursor-pointer text-indigo-400" />
         </Popover>
       </Container>
       <FileDropzone props={props} />

@@ -27,7 +27,7 @@ const slice = createSlice({
     ) {
       state.isUploading = true;
     },
-    setImages(state, action: PayloadAction<any>) {
+    setImages(state, action: PayloadAction<CompressedResultTypes[]>) {
       state.isUploading = false;
       state.files.push(...action.payload);
     },
