@@ -35,7 +35,7 @@ export async function handleImageCompression(
     // @ts-ignore
     return await imageCompression(originFileObj, options).then((data) => {
       return {
-        originalImage: originFileObj,
+        // originalImage: originFileObj,
         compressedImage: data,
         // @ts-ignore
         originalSize: originFileObj?.size / 1024,

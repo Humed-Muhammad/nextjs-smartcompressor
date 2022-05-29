@@ -1,20 +1,50 @@
+import { showNotification } from '@mantine/notifications';
 import { Button } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useCallback, useEffect, useState } from 'react';
+import { useMutation, useQueryClient } from 'react-query';
 
-import { prisma } from '@/db';
+import { ApiRequest } from '@/api';
 import logo from '@/public/favicon.ico';
+import { zipper } from '@/utils/functions/zipper';
 import { useAppSelector } from '@/utils/hooks/reduxHooks';
 
 import { selectCompressedImages } from '../FileDrop/slice/selectors';
 
 export function Navigationbar() {
+  const [allImages, setAllImages] = useState<Buffer>();
   const compressedImages = useAppSelector(selectCompressedImages);
-  const handleSaveCompressedImages = () => {
-    return compressedImages?.map(async (item) => {
-      await prisma.images.create(item);
-    });
-  };
+  const getZippedFile = useCallback(() => {
+    if (compressedImages && compressedImages.length >= 2) {
+      zipper(compressedImages).then((data) => {
+        setAllImages(data);
+      });
+    }
+  }, [compressedImages]);
+
+  useEffect(() => {
+    getZippedFile();
+  }, [getZippedFile]);
+
+  const queryClient = useQueryClient();
+  const mutation = useMutation(ApiRequest, {
+    onSuccess: () => {
+      // Invalidate and refetch
+      queryClient.invalidateQueries('images');
+      showNotification({
+        message: 'Your images are successfully saved!',
+        color: 'green',
+      });
+    },
+    onError: ({ message }) => {
+      showNotification({
+        message,
+        color: 'red',
+      });
+    },
+  });
+
   return (
     <nav className="rounded bg-white px-2 py-2.5 shadow-lg sm:px-4">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
@@ -33,7 +63,16 @@ export function Navigationbar() {
           </div>
         </Link>
         <div className="flex items-center md:order-2">
-          <Button onClick={handleSaveCompressedImages} type="dashed">
+          <Button
+            onClick={() =>
+              mutation.mutate({
+                method: 'POST',
+                body: { compressedImages: allImages },
+                url: 'api/images',
+              })
+            }
+            type="dashed"
+          >
             Save locally
           </Button>
         </div>
