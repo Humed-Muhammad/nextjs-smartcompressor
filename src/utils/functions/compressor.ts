@@ -38,8 +38,8 @@ export async function handleImageCompression(
         // originalImage: originFileObj,
         compressedImage: data,
         // @ts-ignore
-        originalSize: originFileObj?.size / 1024,
-        compressedSize: data.size / 1024,
+        originalSize: Math.round(originFileObj?.size / 1024),
+        compressedSize: Math.round(data.size / 1024),
         imageName: data.name,
       };
     });
