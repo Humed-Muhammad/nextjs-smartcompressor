@@ -33,7 +33,7 @@ export default function ListItem({ item, index }: Props) {
       <div className="relative flex w-full min-w-0 flex-wrap items-center justify-around">
         <h2 className="hidden overflow-auto truncate pr-20 font-semibold text-slate-900 md:inline-block ">
           {item.imageName.length > 15
-            ? item.imageName.substring(0, 16)
+            ? item.imageName.substring(0, item.imageName.indexOf('.'))
             : item.imageName}
         </h2>
         <dl className="mt-2 flex flex-wrap text-sm font-medium leading-6">
