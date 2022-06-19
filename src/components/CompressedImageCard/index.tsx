@@ -1,13 +1,13 @@
 import { LightBulbIcon } from '@heroicons/react/outline';
 import React from 'react';
 
-import { CompressedResultTypes } from '@/utils/types';
+import { SavedImageTypes } from '@/utils/types';
 
 import { Button } from '../base';
 import { DeleteIcon } from '../base/Icons';
 
 interface Props {
-  image: CompressedResultTypes;
+  image: SavedImageTypes;
 }
 export const CompressedImageCard = ({ image }: Props) => {
   return (

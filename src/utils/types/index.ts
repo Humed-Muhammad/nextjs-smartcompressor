@@ -9,6 +9,14 @@ export interface CompressedResultTypes {
   id?: string;
 }
 
+export interface SavedImageTypes {
+  compressedImage: Buffer;
+  originalSize: number;
+  compressedSize: number;
+  imageName: string;
+  id?: string;
+}
+
 export interface RegisterMutationTypes {
   fullName: string;
   email: string;
