@@ -7,7 +7,7 @@ import { Container } from '@/components/base';
 
 const Page404 = () => {
   return (
-    <Container className="grow bg-white font-sans">
+    <Container className="grow  font-sans">
       <div className="w-full text-center">
         <div className="four_zero_four_bg h-96 w-full bg-center bg-no-repeat ">
           <h1 className="text-center ">404</h1>
