@@ -1,5 +1,6 @@
 import { CheckOutlined } from '@ant-design/icons';
 import { Text } from '@mantine/core';
+import Head from 'next/head';
 import Image from 'next/image';
 
 import sideImage from '@/public/sideImage.svg';
@@ -7,6 +8,14 @@ import sideImage from '@/public/sideImage.svg';
 function About() {
   return (
     <div className="my-2 flex h-auto w-screen grow flex-wrap items-center justify-around overflow-auto">
+      <Head>
+        <title>About page</title>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3652123808889795"
+          crossOrigin="anonymous"
+        ></script>
+      </Head>
       <Image className="w-1/2" src={sideImage} alt="About" />
       <div className="w-11/12 md:w-1/2">
         <h1 className="my-2 font-mono text-4xl font-bold text-indigo-400">
