@@ -69,7 +69,7 @@ export const FileDrop = () => {
     fileList: fileListData,
   };
   return (
-    <div className="flex w-full flex-col items-center justify-start bg-slate-100 ">
+    <div className="flex h-screen w-full flex-col items-center justify-start bg-slate-100 ">
       <Container className="mt-5">
         <Popover
           content={

@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 
 import { ApiRequest } from '@/api';
 import { CompressedImageCard } from '@/components/CompressedImageCard';
-import { CompressedResultTypes } from '@/utils/types';
+import { SavedImageTypes } from '@/utils/types';
 
 const Compressed = () => {
   const requestImages = async () => {
@@ -17,9 +17,9 @@ const Compressed = () => {
   const { data } = useQuery('images', requestImages);
 
   return (
-    <div className="mt-3 flex h-auto flex-1 flex-wrap items-center justify-center">
+    <div className="mt-3 flex min-h-screen flex-1 flex-wrap items-center justify-center">
       {data && data.length ? (
-        data.map((image: CompressedResultTypes, index: number) => (
+        data.map((image: SavedImageTypes, index: number) => (
           <CompressedImageCard image={image} key={index} />
         ))
       ) : (

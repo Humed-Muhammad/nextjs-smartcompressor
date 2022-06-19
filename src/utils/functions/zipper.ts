@@ -13,9 +13,9 @@ export const zipper = async (files: CompressedResultTypes[]) => {
       await zipWriter.add(file.imageName, new BlobReader(file.compressedImage));
     } catch ({ message }) {
       showNotification({
-        title: 'Error',
-        message: `${file.imageName} ${message} please remove it from compressed list!`,
-        color: 'red',
+        title: 'Info',
+        message: `${file.imageName} ${message} and will be replaced!`,
+        color: 'blue',
       });
     }
   }
