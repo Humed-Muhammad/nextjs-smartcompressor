@@ -16,6 +16,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
   <MantineProvider>
     <Head>
       <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3652123808889795"
+        crossOrigin="anonymous"
+      ></script>
     </Head>
     <NotificationsProvider>
       <Provider store={configureAppStore()}>
