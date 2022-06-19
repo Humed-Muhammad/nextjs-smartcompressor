@@ -92,7 +92,7 @@ export const FileDrop = () => {
         </Popover>
       </Container>
       <FileDropzone props={props} />
-      <div className="my-4 flex  h-auto w-full flex-wrap items-center justify-center bg-slate-100">
+      <div className="my-4 flex  h-auto w-full flex-col items-center justify-center bg-slate-100">
         <CompressedList
           item={compressedImages as CompressedResultTypes[] | undefined}
         />

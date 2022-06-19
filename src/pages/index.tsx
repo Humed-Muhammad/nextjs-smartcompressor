@@ -18,7 +18,7 @@ function HomePage() {
         <meta property="og:site_name" content="image-compressor" />
         <title>Image compressor (free)</title>
       </Head>
-      <Content className="site-layout mt-16 flex flex-col items-center justify-start bg-slate-100 px-1 sm:px-3  md:px-12">
+      <Content className="site-layout mt-16 flex flex-col items-center justify-start bg-slate-100 ">
         <h1 className="text-3xl font-semibold text-gray-500">
           Image compressor
         </h1>

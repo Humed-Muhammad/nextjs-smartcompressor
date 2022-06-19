@@ -1,4 +1,4 @@
-import Button from './button';
+import { CustomButton as Button } from './button';
 import { Container } from './container';
 import FileDropzone from './fileDropzone';
 import { List } from './List';

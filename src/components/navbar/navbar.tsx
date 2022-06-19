@@ -1,40 +1,30 @@
-import { showNotification } from '@mantine/notifications';
+import { CheckIcon } from '@heroicons/react/outline';
+import { showNotification, updateNotification } from '@mantine/notifications';
 import { Button } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCallback, useEffect, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 
 import { ApiRequest } from '@/api';
 import logo from '@/public/favicon.ico';
-import { zipper } from '@/utils/functions/zipper';
 import { useAppSelector } from '@/utils/hooks/reduxHooks';
 
+import { FancyText } from '../base/Text';
 import { selectCompressedImages } from '../FileDrop/slice/selectors';
 
 export function Navigationbar() {
-  const [allImages, setAllImages] = useState<Buffer>();
   const compressedImages = useAppSelector(selectCompressedImages);
-  const getZippedFile = useCallback(() => {
-    if (compressedImages && compressedImages.length >= 2) {
-      zipper(compressedImages).then((data) => {
-        setAllImages(data);
-      });
-    }
-  }, [compressedImages]);
-
-  useEffect(() => {
-    getZippedFile();
-  }, [getZippedFile]);
 
   const queryClient = useQueryClient();
   const mutation = useMutation(ApiRequest, {
     onSuccess: () => {
       // Invalidate and refetch
       queryClient.invalidateQueries('images');
-      showNotification({
+      updateNotification({
+        id: 'uploading-images',
         message: 'Your images are successfully saved!',
         color: 'green',
+        icon: <CheckIcon className="w-6" />,
       });
     },
     onError: ({ message }) => {
@@ -64,13 +54,19 @@ export function Navigationbar() {
         </Link>
         <div className="flex items-center md:order-2">
           <Button
-            onClick={() =>
+            onClick={() => {
+              showNotification({
+                id: 'uploading-images',
+                message: 'Your images are successfully saved!',
+                color: 'blue',
+                loading: true,
+              });
               mutation.mutate({
                 method: 'POST',
-                body: { compressedImages: allImages },
+                body: compressedImages,
                 url: 'api/images',
-              })
-            }
+              });
+            }}
             type="dashed"
           >
             Save locally
@@ -81,7 +77,11 @@ export function Navigationbar() {
           className="block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
           aria-current="page"
         >
-          <Link href="/compressed">Compressed</Link>
+          <Link passHref href="/compressed">
+            <FancyText className="cursor-pointer border-b-2 border-white text-2xl hover:border-cyan-800 ">
+              Compressed
+            </FancyText>
+          </Link>
         </p>
       </div>
     </nav>

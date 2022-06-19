@@ -12,5 +12,8 @@ datasource db {
 
 model Images {
   id String @id @default(uuid())
-  compressedImages Bytes
+  compressedImage Bytes
+  originalSize Float
+  compressedSize Float
+  imageName String
 }

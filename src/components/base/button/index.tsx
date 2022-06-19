@@ -10,11 +10,11 @@ interface Props {
   variant?: 'default' | 'primary' | 'ghost' | 'dashed' | 'link' | 'text';
 }
 
-const CustomButton = ({
+export const CustomButton = ({
   text,
   command,
   danger,
-  children,
+  // children,
   className,
   variant,
 }: Props) => {
@@ -26,11 +26,11 @@ const CustomButton = ({
       onClick={command}
     >
       {text}
-      {children}
+      {/* {children} */}
     </Button>
   );
 };
 
-export default CustomButton.defualtProps = {
+CustomButton.defualtProps = {
   variant: 'default',
 };
