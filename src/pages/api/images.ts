@@ -26,7 +26,14 @@ export default async function handler(
       throw new Error(`Faild to save image: ${message}`);
     }
   } else if (req.method === 'GET') {
-    return prisma.images.findMany();
+    try {
+      const result = await prisma.images.findMany();
+      if (result && result.length) {
+        res.status(200).json(result);
+      }
+    } catch ({ message }) {
+      throw new Error('Failed to find images');
+    }
   }
   return false;
 }

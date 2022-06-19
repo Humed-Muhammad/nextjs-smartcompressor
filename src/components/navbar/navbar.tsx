@@ -13,19 +13,7 @@ import { FancyText } from '../base/Text';
 import { selectCompressedImages } from '../FileDrop/slice/selectors';
 
 export function Navigationbar() {
-  // const [allImages, setAllImages] = useState<Buffer>();
   const compressedImages = useAppSelector(selectCompressedImages);
-  // const getZippedFile = useCallback(() => {
-  //   if (compressedImages && compressedImages.length >= 2) {
-  //     zipper(compressedImages).then((data) => {
-  //       setAllImages(data);
-  //     });
-  //   }
-  // }, [compressedImages]);
-
-  // useEffect(() => {
-  //   getZippedFile();
-  // }, [getZippedFile]);
 
   const queryClient = useQueryClient();
   const mutation = useMutation(ApiRequest, {

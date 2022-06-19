@@ -7,22 +7,23 @@ import { Button } from '../base';
 import { DeleteIcon } from '../base/Icons';
 
 interface Props {
-  image?: CompressedResultTypes;
+  image: CompressedResultTypes;
 }
 export const CompressedImageCard = ({ image }: Props) => {
   return (
-    <div className="relative flex h-auto  w-80 flex-col items-center justify-between rounded-md bg-white p-3 shadow-md">
+    <div className="relative m-3 flex h-96 w-80 flex-col items-center justify-between rounded-md bg-white p-3 shadow-md">
       <DeleteIcon className="absolute cursor-pointer self-end" />
       <img
         className="mb-2 h-64 w-full rounded-md object-cover"
         src={
-          image?.compressedImage
-            ? window.URL.createObjectURL(image?.compressedImage)
+          image
+            ? window.URL.createObjectURL(new Blob([image?.compressedImage]))
             : ''
         }
+        // src={image?.compressedImage}
         alt="compreesed image"
       />
-      <h1 className="text-center font-mono text-2xl">{image?.imageName}</h1>
+      <h1 className="text-center font-mono ">{image?.imageName}</h1>
       <div className="flex w-full items-center justify-center">
         <h2 className="flex items-center justify-center">
           Compressed Size
