@@ -8,7 +8,7 @@ const { Content } = Layout;
 
 function HomePage() {
   return (
-    <Layout className=" flex h-auto w-full flex-col items-stretch  justify-around  bg-slate-100">
+    <Layout className=" flex h-auto w-full flex-col items-stretch  justify-around bg-slate-100">
       <Head>
         <meta
           name="description"
@@ -16,7 +16,7 @@ function HomePage() {
         />
         <meta name="robots" content="index, follow" />
         <meta property="og:site_name" content="image-compressor" />
-        <title>Image compressor (free)</title>
+        <title>online Image compressor</title>
       </Head>
       <Content className="site-layout mt-16 flex flex-col items-center justify-start bg-slate-100 ">
         <h1 className="text-3xl font-semibold text-gray-500">
