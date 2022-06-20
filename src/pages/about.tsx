@@ -42,7 +42,7 @@ function About() {
         <ul className="flex list-none flex-col justify-center">
           <li className="flex items-center">
             <CheckOutlined size={35} className="mx-2 text-green-500" />
-            Unlimited one time compression. As much as you can!
+            Unlimited compression. As much as you can!
           </li>
           <li className="flex items-center">
             <CheckOutlined size={35} className="mx-2 text-green-500" />
