@@ -1,4 +1,3 @@
-import { Button } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -22,12 +21,6 @@ export function Navigationbar() {
             </h1>
           </div>
         </Link>
-
-        <Button type="dashed">
-          <Link passHref href="/about">
-            About
-          </Link>
-        </Button>
       </div>
     </nav>
   );
