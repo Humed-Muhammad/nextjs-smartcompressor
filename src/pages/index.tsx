@@ -22,13 +22,12 @@ function HomePage() {
         <title>online Image compressor</title>
       </Head>
       <Content className="site-layout mt-16 flex flex-col items-center justify-start bg-slate-100 ">
-        <div className="flex ">
-          <BeakerIcon className="text-yellow-500" width={35} />
+        
           <h1 className="font-mono text-3xl font-semibold text-gray-600">
-            Smart Image compressor
+            Image compressor
           </h1>
-        </div>
-        <div className="w-11/12 md:w-1/2">
+        
+        {*<div className="w-11/12 md:w-1/2">
           <Text className="my-2 ">
             This online smart image optimizer and image compressor uses a smart
             combination of the best optimization and lossy compression
@@ -71,7 +70,7 @@ function HomePage() {
               Download in zipped format or individualy.
             </li>
           </ul>
-        </div>
+        </div>*}
         <FileDrop />
       </Content>
     </Layout>
