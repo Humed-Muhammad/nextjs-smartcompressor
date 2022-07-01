@@ -1,7 +1,7 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import { CheckOutlined } from '@ant-design/icons';
-import { BeakerIcon } from '@heroicons/react/outline';
-import { Text } from '@mantine/core';
+// import { CheckOutlined } from '@ant-design/icons';
+// import { BeakerIcon } from '@heroicons/react/outline';
+// import { Text } from '@mantine/core';
 import { Layout } from 'antd';
 import Head from 'next/head';
 
@@ -22,11 +22,11 @@ function HomePage() {
         <title>online Image compressor</title>
       </Head>
       <Content className="site-layout mt-16 flex flex-col items-center justify-start bg-slate-100 ">
-        <div className="flex ">
+        <h1 className="font-mono text-3xl font-semibold text-gray-600">
+          Smart Image compressor
+        </h1>
+        {/* <div className="flex ">
           <BeakerIcon className="text-yellow-500" width={35} />
-          <h1 className="font-mono text-3xl font-semibold text-gray-600">
-            Smart Image compressor
-          </h1>
         </div>
         <div className="w-11/12 md:w-1/2">
           <Text className="my-2 ">
@@ -71,7 +71,7 @@ function HomePage() {
               Download in zipped format or individualy.
             </li>
           </ul>
-        </div>
+        </div> */}
         <FileDrop />
       </Content>
     </Layout>
