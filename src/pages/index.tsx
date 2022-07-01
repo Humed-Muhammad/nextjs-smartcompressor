@@ -1,6 +1,5 @@
-8/* eslint-disable tailwindcss/no-custom-classname */
+/* eslint-disable tailwindcss/no-custom-classname */
 import { CheckOutlined } from '@ant-design/icons';
-import { BeakerIcon } from '@heroicons/react/outline';
 import { Text } from '@mantine/core';
 import { Layout } from 'antd';
 import Head from 'next/head';
