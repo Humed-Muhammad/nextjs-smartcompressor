@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -20,6 +21,9 @@ export function Navigationbar() {
               Smart Compressor
             </h1>
           </div>
+        </Link>
+        <Link href="/about" passHref>
+          <Button type="link">About</Button>
         </Link>
       </div>
     </nav>
